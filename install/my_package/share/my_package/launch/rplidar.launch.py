@@ -1,1 +1,1 @@
-/home/tomy/Desktop/Projects/mapbot/src/my_package/launch/rplidar.launch.py
+/home/master/Desktop/Mapbot/src/my_package/launch/rplidar.launch.py
