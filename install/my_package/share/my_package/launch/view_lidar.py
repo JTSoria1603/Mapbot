@@ -1,1 +1,0 @@
-/home/master/Desktop/Mapbot/src/my_package/launch/view_lidar.py
