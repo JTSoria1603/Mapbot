@@ -1,0 +1,14 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from wheel_msgs/msg/WheelAngles.msg
+// generated code does not contain a copyright notice
+
+
+module wheel_msgs {
+  module msg {
+    struct WheelAngles {
+      float right_wheel;
+
+      float left_wheel;
+    };
+  };
+};
