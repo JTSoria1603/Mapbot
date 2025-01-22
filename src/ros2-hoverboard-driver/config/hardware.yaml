@@ -1,0 +1,9 @@
+hoverboard_driver_node:
+  ros__parameters:
+    robaka:
+      direction: 1
+      hardware_interface:
+        loop_hz: 50  # Hz
+        joints:
+          - left_wheel
+          - right_wheel
