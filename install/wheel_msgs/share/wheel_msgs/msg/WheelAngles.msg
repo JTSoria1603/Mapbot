@@ -1,2 +1,1 @@
-float32 right_wheel
-float32 left_wheel
+/home/ros/Mapbot/src/wheel_msgs/msg/WheelAngles.msg

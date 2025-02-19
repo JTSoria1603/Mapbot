@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<robot name="hoverboard_robot" xmlns:xacro="http://ros.org/wiki/xacro">
+
+    <xacro:include filename="materials.xacro" />
+    <xacro:include filename="macros.xacro" />
+    <xacro:include filename="wheels.xacro" />
+    <xacro:include filename="ros2_control.xacro" />
+
+
+    <xacro:property name="chassis_weight" value="1.0" />
+
+    <xacro:property name="driving_wheel_diameter" value="0.165" />
+    <xacro:property name="driving_wheel_thickness" value="0.05" />
+    <xacro:property name="driving_wheel_weight" value="1.0" />
+
+    <xacro:property name="caster_wheel_diameter" value="0.05" />
+    <xacro:property name="caster_wheel_weight" value="0.5" />
+
+    <link name="base_footprint"/>
+
+    <link name="base_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.4 0.35 0.35"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+       <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <box size="0.4 0.35 0.35"/>
+            </geometry>
+        </collision>
+        <xacro:box_inertia m="5.0" w="0.4" h="0.35" d="0.35"/>
+    </link>
+
+    <joint name="base_joint" type="fixed">
+        <parent link="base_footprint"/>
+        <child link="base_link" />
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+    <xacro:driving_wheel suffix="left" reflect="1"/>
+    <xacro:driving_wheel suffix="right" reflect="-1"/>
+
+    <xacro:caster_wheel suffix="front" reflect="1" />
+    <xacro:caster_wheel suffix="back" reflect="-1" />
+
+    <xacro:hoverboard_ros2_control name="Hoverboard" />
+
+</robot>

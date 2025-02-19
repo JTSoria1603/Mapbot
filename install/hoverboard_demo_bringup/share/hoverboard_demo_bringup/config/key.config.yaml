@@ -1,0 +1,14 @@
+teleop_twist_key:
+  ros__parameters:
+    scale_linear:
+      x: 0.5  # Velocidad lineal máxima en m/s
+      y: 0.0  # Normalmente no se usa en robots diferenciales
+      z: 0.0  # No se usa en la mayoría de los casos
+    scale_angular:
+      yaw: 1.0  # Velocidad angular máxima en rad/s
+    key_mapping:
+      forward: "w"
+      backward: "s"
+      left: "a"
+      right: "d"
+      stop: "space"

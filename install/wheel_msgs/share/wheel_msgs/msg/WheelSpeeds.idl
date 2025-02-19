@@ -1,14 +1,1 @@
-// generated from rosidl_adapter/resource/msg.idl.em
-// with input from wheel_msgs/msg/WheelSpeeds.msg
-// generated code does not contain a copyright notice
-
-
-module wheel_msgs {
-  module msg {
-    struct WheelSpeeds {
-      float right_wheel;
-
-      float left_wheel;
-    };
-  };
-};
+/home/ros/Mapbot/build/wheel_msgs/rosidl_adapter/wheel_msgs/msg/WheelSpeeds.idl

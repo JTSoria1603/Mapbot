@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+
+    <xacro:macro name="driving_wheel" params="suffix reflect">
+        <link name="driving_wheel_${suffix}">
+            <visual>
+                <origin xyz="-0.15 ${0.16 * reflect} -0.18" rpy="${pi/2} 0 0" />
+                <geometry>
+                    <cylinder radius="0.0825" length="0.05"/>
+                </geometry>
+                <material name="black"/>
+            </visual>
+            <collision>
+                <origin xyz="-0.15 ${0.16 * reflect} -0.18" rpy="${pi/2} 0 0" />
+                <contact_coefficients mu="100.0" kp="0.0" kd="0.0" />
+                <geometry>
+                    <cylinder radius="0.0825" length="0.05"/>
+                </geometry>
+            </collision>
+            <xacro:cylinder_inertia m="1.0" r="0.0825" h="0.05" roll="${pi/2}"/>
+        </link>
+
+        <joint name="driving_wheel_${suffix}_joint" type="continuous">
+            <axis xyz="0 1 0" rpy="0 0 0" />
+            <parent link="base_link"/>
+            <child link="driving_wheel_${suffix}"/>
+            <origin xyz="-0.15 ${0.16 * reflect} -0.18" rpy="0 0 0"/>
+        </joint>
+    </xacro:macro>
+
+    <xacro:macro name="caster_wheel" params="suffix reflect">
+        <link name="caster_wheel_${suffix}">
+            <visual>
+                <origin xyz="0.15 ${-0.075 * reflect} -0.18" rpy="0 0 0" />
+                <geometry>
+                    <sphere radius="0.025" />
+                </geometry>
+                <material name="black"/>
+            </visual>
+            <collision>
+                <origin xyz="0.15 ${-0.075 * reflect} -0.18" rpy="0 0 0" />
+                <contact_coefficients mu="0.0" kp="0.0" kd="0.0" />
+                <geometry>
+                    <sphere radius="0.025" />
+                </geometry>
+            </collision>
+            <xacro:sphere_inertia m="0.5" r="0.025"/>
+        </link>
+
+        <joint name="caster_wheel_${suffix}_joint" type="fixed">
+            <parent link="base_link"/>
+            <child link="caster_wheel_${suffix}"/>
+            <origin xyz="0.15 ${-0.075 * reflect} -0.18" rpy="0 0 0"/>
+        </joint>
+    </xacro:macro>
+
+</robot>
